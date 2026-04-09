@@ -5,44 +5,46 @@
 
 ## Engine & Language
 
-- **Engine**: [TO BE CONFIGURED — run /setup-engine]
-- **Language**: [TO BE CONFIGURED]
-- **Rendering**: [TO BE CONFIGURED]
-- **Physics**: [TO BE CONFIGURED]
+- **Engine**: Godot 4.6
+- **Language**: GDScript (primary), C++ via GDExtension for performance-critical code
+- **Rendering**: Forward+ renderer, desktop-first 3D presentation
+- **Physics**: Jolt Physics 3D (Godot 4.6 default)
 
 ## Naming Conventions
 
-- **Classes**: [TO BE CONFIGURED]
-- **Variables**: [TO BE CONFIGURED]
-- **Signals/Events**: [TO BE CONFIGURED]
-- **Files**: [TO BE CONFIGURED]
-- **Scenes/Prefabs**: [TO BE CONFIGURED]
-- **Constants**: [TO BE CONFIGURED]
+- **Classes**: PascalCase (`FatherTimeDioramaRoot`)
+- **Variables**: snake_case (`active_era_id`)
+- **Signals/Events**: snake_case past tense (`artifact_resolved`)
+- **Files**: snake_case matching class or responsibility (`father_time_run_state.gd`)
+- **Scenes/Prefabs**: PascalCase matching the root node (`FatherTimeDioramaRoot.tscn`)
+- **Constants**: UPPER_SNAKE_CASE (`ENDING_COLLAPSE`)
 
 ## Performance Budgets
 
-- **Target Framerate**: [TO BE CONFIGURED]
-- **Frame Budget**: [TO BE CONFIGURED]
-- **Draw Calls**: [TO BE CONFIGURED]
-- **Memory Ceiling**: [TO BE CONFIGURED]
+- **Target Framerate**: 60 fps
+- **Frame Budget**: 16.6 ms
+- **Draw Calls**: [TO BE CONFIGURED after the first graybox pass]
+- **Memory Ceiling**: [TO BE CONFIGURED after the first asset pass]
 
 ## Testing
 
-- **Framework**: [TO BE CONFIGURED]
-- **Minimum Coverage**: [TO BE CONFIGURED]
-- **Required Tests**: Balance formulas, gameplay systems, networking (if applicable)
+- **Framework**: Native headless Godot scene/script tests now, GdUnit4 when the test harness is added
+- **Minimum Coverage**: 100% for slice data contracts and branch/state transitions; integration coverage for boot flow and both endings
+- **Required Tests**: Boot validation, artifact/slot contracts, deterministic director sequencing, negative interaction paths, ending branches
 
 ## Forbidden Patterns
 
 <!-- Add patterns that should never appear in this project's codebase -->
-- [None configured yet — add as architectural decisions are made]
+- Runtime node-path lookups or ID resolution inside interaction/reveal hot paths
+- Mixing authored slice content with timing/tuning constants in the same file
+- Splitting first-slice sequencing into separate camera/caption/ending manager scripts
 
 ## Allowed Libraries / Addons
 
 <!-- Add approved third-party dependencies here -->
-- [None configured yet — add as dependencies are approved]
+- GdUnit4 when the test harness is introduced
 
 ## Architecture Decisions Log
 
 <!-- Quick reference linking to full ADRs in docs/architecture/ -->
-- [No ADRs yet — use /architecture-decision to create one]
+- First slice: one root play scene, one root director, one authoritative run state, one slice content table, one separate tuning config

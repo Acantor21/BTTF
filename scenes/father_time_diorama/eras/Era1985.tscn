@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3]
+
+[sub_resource type="StandardMaterial3D" id="1_ground_material"]
+albedo_color = Color(0.329412, 0.337255, 0.439216, 1)
+
+[sub_resource type="StandardMaterial3D" id="2_landmark_material"]
+albedo_color = Color(0.733333, 0.341176, 0.333333, 1)
+
+[sub_resource type="StandardMaterial3D" id="3_accent_material"]
+albedo_color = Color(0.913725, 0.756863, 0.333333, 1)
+
+[sub_resource type="BoxMesh" id="4_ground_mesh"]
+size = Vector3(7.4, 0.25, 7)
+material = SubResource("1_ground_material")
+
+[sub_resource type="BoxMesh" id="5_biff_body_mesh"]
+size = Vector3(2.0, 2.15, 1.55)
+material = SubResource("2_landmark_material")
+
+[sub_resource type="BoxMesh" id="6_biff_top_mesh"]
+size = Vector3(1.2, 0.42, 1.15)
+material = SubResource("3_accent_material")
+
+[sub_resource type="BoxMesh" id="7_mall_body_mesh"]
+size = Vector3(2.9, 0.9, 1.55)
+material = SubResource("2_landmark_material")
+
+[sub_resource type="BoxMesh" id="8_canopy_mesh"]
+size = Vector3(3.2, 0.18, 0.95)
+material = SubResource("3_accent_material")
+
+[sub_resource type="BoxMesh" id="9_billboard_post_mesh"]
+size = Vector3(0.32, 2.0, 0.32)
+material = SubResource("2_landmark_material")
+
+[sub_resource type="BoxMesh" id="10_billboard_panel_mesh"]
+size = Vector3(2.2, 0.9, 0.22)
+material = SubResource("3_accent_material")
+
+[sub_resource type="BoxMesh" id="11_lane_mesh"]
+size = Vector3(4.2, 0.04, 0.52)
+material = SubResource("3_accent_material")
+
+[node name="Era1985" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.125, 0)
+mesh = SubResource("4_ground_mesh")
+
+[node name="ParkingCue" type="MeshInstance3D" parent="."]
+position = Vector3(0.4, 0.02, 1.55)
+mesh = SubResource("11_lane_mesh")
+
+[node name="BiffPressureProxy" type="Node3D" parent="."]
+position = Vector3(0.95, 0, -0.9)
+
+[node name="Body" type="MeshInstance3D" parent="BiffPressureProxy"]
+position = Vector3(0, 1.08, 0)
+mesh = SubResource("5_biff_body_mesh")
+
+[node name="Sign" type="MeshInstance3D" parent="BiffPressureProxy"]
+position = Vector3(0.2, 2.45, 0)
+mesh = SubResource("6_biff_top_mesh")
+
+[node name="MallProxy" type="Node3D" parent="."]
+position = Vector3(-2.0, 0, -0.45)
+
+[node name="Body" type="MeshInstance3D" parent="MallProxy"]
+position = Vector3(0, 0.45, 0)
+mesh = SubResource("7_mall_body_mesh")
+
+[node name="Canopy" type="MeshInstance3D" parent="MallProxy"]
+position = Vector3(0, 1.02, 0.28)
+mesh = SubResource("8_canopy_mesh")
+
+[node name="BillboardProxy" type="Node3D" parent="."]
+position = Vector3(2.2, 0, -1.15)
+
+[node name="Post" type="MeshInstance3D" parent="BillboardProxy"]
+position = Vector3(0, 1.0, 0)
+mesh = SubResource("9_billboard_post_mesh")
+
+[node name="Panel" type="MeshInstance3D" parent="BillboardProxy"]
+position = Vector3(0, 2.18, 0)
+mesh = SubResource("10_billboard_panel_mesh")
+
+[node name="HeroCameraAnchor" type="Marker3D" parent="."]
+position = Vector3(0.55, 4.2, 7.45)
+rotation_degrees = Vector3(-25.5, 4.5, 0)
+
+[node name="PlacardAnchor" type="Marker3D" parent="."]
+position = Vector3(0, 2.5, 2.1)
+
+[node name="SlotAnchors" type="Node3D" parent="."]
+
+[node name="AlmanacSlot" type="Marker3D" parent="SlotAnchors"]
+position = Vector3(0.3, 0.45, 0.9)

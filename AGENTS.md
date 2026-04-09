@@ -1,6 +1,6 @@
-# Claude Code Game Studios -- Game Studio Agent Architecture
+# Codex Game Studios -- Game Studio Agent Architecture
 
-Indie game development managed through 48 coordinated Claude Code subagents.
+Indie game development managed through 48 coordinated Codex subagents.
 Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Technology Stack

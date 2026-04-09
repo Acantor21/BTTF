@@ -1,0 +1,386 @@
+[gd_scene load_steps=38 format=3]
+
+[sub_resource type="StandardMaterial3D" id="1_ground_material"]
+albedo_color = Color(0.447059, 0.384314, 0.313726, 1)
+roughness = 0.98
+
+[sub_resource type="StandardMaterial3D" id="2_plaster_material"]
+albedo_color = Color(0.866667, 0.776471, 0.631373, 1)
+roughness = 0.93
+
+[sub_resource type="StandardMaterial3D" id="3_roof_material"]
+albedo_color = Color(0.364706, 0.266667, 0.196078, 1)
+roughness = 0.78
+
+[sub_resource type="StandardMaterial3D" id="4_brass_material"]
+albedo_color = Color(0.615686, 0.482353, 0.262745, 1)
+roughness = 0.36
+metallic = 0.72
+
+[sub_resource type="StandardMaterial3D" id="5_road_material"]
+albedo_color = Color(0.14902, 0.129412, 0.113725, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="6_accent_material"]
+albedo_color = Color(0.623529, 0.341176, 0.243137, 1)
+roughness = 0.72
+
+[sub_resource type="StandardMaterial3D" id="7_sidewalk_material"]
+albedo_color = Color(0.913725, 0.866667, 0.768627, 1)
+roughness = 0.96
+
+[sub_resource type="StandardMaterial3D" id="8_window_material"]
+albedo_color = Color(0.219608, 0.247059, 0.27451, 1)
+roughness = 0.2
+metallic = 0.08
+
+[sub_resource type="StandardMaterial3D" id="9_foliage_material"]
+albedo_color = Color(0.321569, 0.458824, 0.286275, 1)
+roughness = 0.92
+
+[sub_resource type="StandardMaterial3D" id="10_trunk_material"]
+albedo_color = Color(0.32549, 0.235294, 0.168627, 1)
+roughness = 0.92
+
+[sub_resource type="CylinderMesh" id="11_ground_mesh"]
+top_radius = 2.42
+bottom_radius = 2.58
+height = 0.2
+material = SubResource("1_ground_material")
+
+[sub_resource type="BoxMesh" id="12_road_long_mesh"]
+size = Vector3(2.95, 0.04, 0.42)
+material = SubResource("5_road_material")
+
+[sub_resource type="BoxMesh" id="13_road_short_mesh"]
+size = Vector3(1.7, 0.04, 0.36)
+material = SubResource("5_road_material")
+
+[sub_resource type="CylinderMesh" id="14_plaza_mesh"]
+top_radius = 0.56
+bottom_radius = 0.64
+height = 0.07
+material = SubResource("7_sidewalk_material")
+
+[sub_resource type="BoxMesh" id="15_sidewalk_mesh"]
+size = Vector3(0.82, 0.08, 0.52)
+material = SubResource("7_sidewalk_material")
+
+[sub_resource type="BoxMesh" id="16_crosswalk_mesh"]
+size = Vector3(0.18, 0.015, 0.34)
+material = SubResource("7_sidewalk_material")
+
+[sub_resource type="BoxMesh" id="17_tower_base_mesh"]
+size = Vector3(0.98, 0.3, 0.7)
+material = SubResource("2_plaster_material")
+
+[sub_resource type="BoxMesh" id="18_tower_body_mesh"]
+size = Vector3(0.56, 0.92, 0.48)
+material = SubResource("2_plaster_material")
+
+[sub_resource type="BoxMesh" id="19_tower_wing_mesh"]
+size = Vector3(0.28, 0.42, 0.34)
+material = SubResource("2_plaster_material")
+
+[sub_resource type="BoxMesh" id="20_tower_room_mesh"]
+size = Vector3(0.7, 0.34, 0.58)
+material = SubResource("2_plaster_material")
+
+[sub_resource type="BoxMesh" id="21_tower_cap_mesh"]
+size = Vector3(0.84, 0.12, 0.7)
+material = SubResource("3_roof_material")
+
+[sub_resource type="BoxMesh" id="22_spire_mesh"]
+size = Vector3(0.12, 0.42, 0.12)
+material = SubResource("6_accent_material")
+
+[sub_resource type="BoxMesh" id="23_clock_face_mesh"]
+size = Vector3(0.18, 0.14, 0.04)
+material = SubResource("8_window_material")
+
+[sub_resource type="BoxMesh" id="24_storefront_large_mesh"]
+size = Vector3(0.62, 0.48, 0.42)
+material = SubResource("2_plaster_material")
+
+[sub_resource type="BoxMesh" id="25_storefront_small_mesh"]
+size = Vector3(0.46, 0.38, 0.36)
+material = SubResource("2_plaster_material")
+
+[sub_resource type="BoxMesh" id="26_roof_strip_mesh"]
+size = Vector3(0.68, 0.08, 0.22)
+material = SubResource("3_roof_material")
+
+[sub_resource type="BoxMesh" id="27_awning_mesh"]
+size = Vector3(0.58, 0.05, 0.16)
+material = SubResource("6_accent_material")
+
+[sub_resource type="BoxMesh" id="28_window_strip_mesh"]
+size = Vector3(0.42, 0.06, 0.04)
+material = SubResource("8_window_material")
+
+[sub_resource type="BoxMesh" id="29_diner_body_mesh"]
+size = Vector3(0.94, 0.34, 0.58)
+material = SubResource("2_plaster_material")
+
+[sub_resource type="BoxMesh" id="30_diner_canopy_mesh"]
+size = Vector3(1.04, 0.05, 0.18)
+material = SubResource("6_accent_material")
+
+[sub_resource type="CylinderMesh" id="31_round_sign_mesh"]
+top_radius = 0.16
+bottom_radius = 0.16
+height = 0.06
+material = SubResource("4_brass_material")
+
+[sub_resource type="CylinderMesh" id="32_socket_base_mesh"]
+top_radius = 0.16
+bottom_radius = 0.18
+height = 0.05
+material = SubResource("4_brass_material")
+
+[sub_resource type="CylinderMesh" id="33_socket_well_mesh"]
+top_radius = 0.08
+bottom_radius = 0.11
+height = 0.04
+material = SubResource("3_roof_material")
+
+[sub_resource type="CylinderMesh" id="34_lamp_mesh"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.34
+material = SubResource("4_brass_material")
+
+[sub_resource type="CylinderMesh" id="35_tree_trunk_mesh"]
+top_radius = 0.03
+bottom_radius = 0.04
+height = 0.18
+material = SubResource("10_trunk_material")
+
+[sub_resource type="SphereMesh" id="36_tree_canopy_mesh"]
+radius = 0.16
+height = 0.32
+material = SubResource("9_foliage_material")
+
+[sub_resource type="BoxMesh" id="37_parking_pad_mesh"]
+size = Vector3(1.02, 0.04, 0.54)
+material = SubResource("7_sidewalk_material")
+
+[node name="Era1955" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.1, 0)
+mesh = SubResource("11_ground_mesh")
+
+[node name="StreetLoop" type="Node3D" parent="."]
+
+[node name="StreetSpine" type="MeshInstance3D" parent="StreetLoop"]
+position = Vector3(0.02, 0.01, 0.28)
+rotation_degrees = Vector3(0, 4, 0)
+mesh = SubResource("12_road_long_mesh")
+
+[node name="StreetCross" type="MeshInstance3D" parent="StreetLoop"]
+position = Vector3(-0.48, 0.01, -0.02)
+rotation_degrees = Vector3(0, 34, 0)
+mesh = SubResource("13_road_short_mesh")
+
+[node name="TownSquarePlaza" type="MeshInstance3D" parent="."]
+position = Vector3(-0.52, -0.005, 0.1)
+mesh = SubResource("14_plaza_mesh")
+
+[node name="CrosswalkA" type="MeshInstance3D" parent="."]
+position = Vector3(-0.08, 0.02, 0.16)
+rotation_degrees = Vector3(0, 4, 0)
+mesh = SubResource("16_crosswalk_mesh")
+
+[node name="CrosswalkB" type="MeshInstance3D" parent="."]
+position = Vector3(0.14, 0.02, 0.18)
+rotation_degrees = Vector3(0, 4, 0)
+mesh = SubResource("16_crosswalk_mesh")
+
+[node name="CrosswalkC" type="MeshInstance3D" parent="."]
+position = Vector3(0.36, 0.02, 0.2)
+rotation_degrees = Vector3(0, 4, 0)
+mesh = SubResource("16_crosswalk_mesh")
+
+[node name="TownSquareProxy" type="Node3D" parent="."]
+position = Vector3(-1.02, 0, -0.06)
+
+[node name="Sidewalk" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(0, 0.04, 0.2)
+mesh = SubResource("15_sidewalk_mesh")
+scale = Vector3(1.22, 1, 1.06)
+
+[node name="ShopA" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(-0.32, 0.24, 0.02)
+mesh = SubResource("24_storefront_large_mesh")
+
+[node name="ShopARoof" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(-0.32, 0.52, -0.02)
+mesh = SubResource("26_roof_strip_mesh")
+
+[node name="ShopAAwning" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(-0.32, 0.34, 0.22)
+mesh = SubResource("27_awning_mesh")
+
+[node name="ShopAWindow" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(-0.32, 0.24, 0.24)
+mesh = SubResource("28_window_strip_mesh")
+
+[node name="ShopB" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(0.28, 0.22, 0.04)
+mesh = SubResource("24_storefront_large_mesh")
+scale = Vector3(0.92, 0.94, 0.9)
+
+[node name="ShopBRoof" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(0.28, 0.48, 0.02)
+mesh = SubResource("26_roof_strip_mesh")
+scale = Vector3(0.92, 1, 0.92)
+
+[node name="ShopBWindow" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(0.28, 0.22, 0.24)
+mesh = SubResource("28_window_strip_mesh")
+
+[node name="Annex" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(0.68, 0.18, -0.06)
+mesh = SubResource("25_storefront_small_mesh")
+
+[node name="AnnexRoof" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(0.68, 0.4, -0.06)
+mesh = SubResource("26_roof_strip_mesh")
+scale = Vector3(0.68, 1, 0.74)
+
+[node name="LampA" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(-0.72, 0.17, 0.38)
+mesh = SubResource("34_lamp_mesh")
+
+[node name="LampB" type="MeshInstance3D" parent="TownSquareProxy"]
+position = Vector3(0.62, 0.17, 0.36)
+mesh = SubResource("34_lamp_mesh")
+
+[node name="ClockTowerProxy" type="Node3D" parent="."]
+position = Vector3(0.08, 0, -0.68)
+
+[node name="FrontPad" type="MeshInstance3D" parent="ClockTowerProxy"]
+position = Vector3(0, 0.04, 0.38)
+mesh = SubResource("15_sidewalk_mesh")
+scale = Vector3(0.72, 1, 0.56)
+
+[node name="Base" type="MeshInstance3D" parent="ClockTowerProxy"]
+position = Vector3(0, 0.16, 0)
+mesh = SubResource("17_tower_base_mesh")
+
+[node name="LeftWing" type="MeshInstance3D" parent="ClockTowerProxy"]
+position = Vector3(-0.34, 0.34, 0.02)
+mesh = SubResource("19_tower_wing_mesh")
+
+[node name="RightWing" type="MeshInstance3D" parent="ClockTowerProxy"]
+position = Vector3(0.34, 0.34, 0.02)
+mesh = SubResource("19_tower_wing_mesh")
+
+[node name="Body" type="MeshInstance3D" parent="ClockTowerProxy"]
+position = Vector3(0, 0.74, 0)
+mesh = SubResource("18_tower_body_mesh")
+
+[node name="ClockRoom" type="MeshInstance3D" parent="ClockTowerProxy"]
+position = Vector3(0, 1.38, 0)
+mesh = SubResource("20_tower_room_mesh")
+
+[node name="ClockFace" type="MeshInstance3D" parent="ClockTowerProxy"]
+position = Vector3(0, 1.4, 0.31)
+mesh = SubResource("23_clock_face_mesh")
+
+[node name="Cornice" type="MeshInstance3D" parent="ClockTowerProxy"]
+position = Vector3(0, 1.62, 0)
+mesh = SubResource("21_tower_cap_mesh")
+
+[node name="Spire" type="MeshInstance3D" parent="ClockTowerProxy"]
+position = Vector3(0, 1.9, 0)
+mesh = SubResource("22_spire_mesh")
+
+[node name="DinerProxy" type="Node3D" parent="."]
+position = Vector3(1.08, 0, 0.26)
+
+[node name="ParkingPad" type="MeshInstance3D" parent="DinerProxy"]
+position = Vector3(0, 0.03, 0.02)
+mesh = SubResource("37_parking_pad_mesh")
+
+[node name="Body" type="MeshInstance3D" parent="DinerProxy"]
+position = Vector3(0, 0.18, 0)
+mesh = SubResource("29_diner_body_mesh")
+
+[node name="Roof" type="MeshInstance3D" parent="DinerProxy"]
+position = Vector3(0, 0.38, -0.02)
+mesh = SubResource("26_roof_strip_mesh")
+scale = Vector3(1.46, 1, 1.16)
+
+[node name="Canopy" type="MeshInstance3D" parent="DinerProxy"]
+position = Vector3(0, 0.28, 0.2)
+mesh = SubResource("30_diner_canopy_mesh")
+
+[node name="WindowStrip" type="MeshInstance3D" parent="DinerProxy"]
+position = Vector3(0, 0.18, 0.24)
+mesh = SubResource("28_window_strip_mesh")
+scale = Vector3(1.52, 1, 1)
+
+[node name="SignPost" type="MeshInstance3D" parent="DinerProxy"]
+position = Vector3(0.28, 0.28, -0.02)
+rotation_degrees = Vector3(0, 0, 90)
+mesh = SubResource("34_lamp_mesh")
+
+[node name="Sign" type="MeshInstance3D" parent="DinerProxy"]
+position = Vector3(0.28, 0.62, -0.02)
+rotation_degrees = Vector3(0, 0, 90)
+mesh = SubResource("31_round_sign_mesh")
+
+[node name="TreeA" type="Node3D" parent="."]
+position = Vector3(-1.52, 0, 0.44)
+
+[node name="Trunk" type="MeshInstance3D" parent="TreeA"]
+position = Vector3(0, 0.09, 0)
+mesh = SubResource("35_tree_trunk_mesh")
+
+[node name="Canopy" type="MeshInstance3D" parent="TreeA"]
+position = Vector3(0, 0.28, 0)
+mesh = SubResource("36_tree_canopy_mesh")
+
+[node name="TreeB" type="Node3D" parent="."]
+position = Vector3(0.46, 0, 0.92)
+
+[node name="Trunk" type="MeshInstance3D" parent="TreeB"]
+position = Vector3(0, 0.09, 0)
+mesh = SubResource("35_tree_trunk_mesh")
+
+[node name="Canopy" type="MeshInstance3D" parent="TreeB"]
+position = Vector3(0, 0.28, 0)
+mesh = SubResource("36_tree_canopy_mesh")
+
+[node name="HeroCameraAnchor" type="Marker3D" parent="."]
+position = Vector3(0, 4.25, 5.1)
+rotation_degrees = Vector3(-48, 0, 0)
+
+[node name="PlacardAnchor" type="Marker3D" parent="."]
+position = Vector3(0, 1.8, 1.24)
+
+[node name="SlotAnchors" type="Node3D" parent="."]
+
+[node name="FlyerSlot" type="Marker3D" parent="SlotAnchors"]
+position = Vector3(-0.58, 0.07, 0.28)
+
+[node name="SocketBase" type="MeshInstance3D" parent="SlotAnchors/FlyerSlot"]
+position = Vector3(0, 0.025, 0)
+mesh = SubResource("32_socket_base_mesh")
+
+[node name="SocketWell" type="MeshInstance3D" parent="SlotAnchors/FlyerSlot"]
+position = Vector3(0, 0.065, 0)
+mesh = SubResource("33_socket_well_mesh")
+
+[node name="HookSlot" type="Marker3D" parent="SlotAnchors"]
+position = Vector3(0.38, 0.07, -0.22)
+
+[node name="SocketBase" type="MeshInstance3D" parent="SlotAnchors/HookSlot"]
+position = Vector3(0, 0.025, 0)
+mesh = SubResource("32_socket_base_mesh")
+
+[node name="SocketWell" type="MeshInstance3D" parent="SlotAnchors/HookSlot"]
+position = Vector3(0, 0.065, 0)
+mesh = SubResource("33_socket_well_mesh")

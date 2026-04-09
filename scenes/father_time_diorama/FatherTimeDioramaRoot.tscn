@@ -1,0 +1,293 @@
+[gd_scene load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://src/gameplay/father_time_diorama/father_time_diorama_root.gd" id="1_root"]
+[ext_resource type="PackedScene" path="res://scenes/father_time_diorama/eras/Era1955.tscn" id="2_1955"]
+[ext_resource type="PackedScene" path="res://scenes/father_time_diorama/eras/Era1985.tscn" id="3_1985"]
+[ext_resource type="PackedScene" path="res://scenes/father_time_diorama/eras/Era2015.tscn" id="4_2015"]
+
+[sub_resource type="StandardMaterial3D" id="1_pedestal_material"]
+albedo_color = Color(0.137255, 0.105882, 0.0823529, 1)
+roughness = 0.48
+metallic = 0.52
+
+[sub_resource type="StandardMaterial3D" id="2_brass_material"]
+albedo_color = Color(0.54902, 0.411765, 0.223529, 1)
+roughness = 0.3
+metallic = 0.78
+
+[sub_resource type="StandardMaterial3D" id="3_backdrop_material"]
+albedo_color = Color(0.105882, 0.101961, 0.12549, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="4_glass_material"]
+transparency = 1
+albedo_color = Color(0.819608, 0.917647, 0.968627, 0.08)
+roughness = 0.03
+metallic = 0.08
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="5_plaque_material"]
+albedo_color = Color(0.180392, 0.129412, 0.0941176, 1)
+roughness = 0.7
+metallic = 0.18
+
+[sub_resource type="StandardMaterial3D" id="6_stage_material"]
+albedo_color = Color(0.647059, 0.580392, 0.466667, 1)
+roughness = 0.96
+
+[sub_resource type="StandardMaterial3D" id="7_tray_material"]
+albedo_color = Color(0.25098, 0.180392, 0.121569, 1)
+roughness = 0.62
+metallic = 0.18
+
+[sub_resource type="Environment" id="8_environment"]
+background_mode = 1
+background_color = Color(0.0862745, 0.0823529, 0.105882, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.415686, 0.392157, 0.34902, 1)
+ambient_light_energy = 0.5
+tonemap_mode = 1
+
+[sub_resource type="CameraAttributesPractical" id="22_camera_attributes"]
+dof_blur_amount = 0.08
+dof_blur_far_distance = 10.2
+dof_blur_far_enabled = true
+dof_blur_far_transition = 2.0
+dof_blur_near_distance = 6.9
+dof_blur_near_enabled = true
+dof_blur_near_transition = 1.45
+
+[sub_resource type="CylinderMesh" id="9_pedestal_base_mesh"]
+top_radius = 4.85
+bottom_radius = 5.3
+height = 1.55
+material = SubResource("1_pedestal_material")
+
+[sub_resource type="CylinderMesh" id="10_pedestal_mid_mesh"]
+top_radius = 4.2
+bottom_radius = 4.7
+height = 0.62
+material = SubResource("1_pedestal_material")
+
+[sub_resource type="CylinderMesh" id="11_pedestal_top_mesh"]
+top_radius = 4.55
+bottom_radius = 4.72
+height = 0.3
+material = SubResource("2_brass_material")
+
+[sub_resource type="BoxMesh" id="12_plaque_mesh"]
+size = Vector3(2.85, 0.18, 0.52)
+material = SubResource("5_plaque_material")
+
+[sub_resource type="BoxMesh" id="13_backdrop_mesh"]
+size = Vector3(28, 16.5, 0.6)
+material = SubResource("3_backdrop_material")
+
+[sub_resource type="SphereMesh" id="14_globe_mesh"]
+radius = 4.45
+height = 8.9
+material = SubResource("4_glass_material")
+
+[sub_resource type="CylinderMesh" id="15_stage_mesh"]
+top_radius = 3.28
+bottom_radius = 3.48
+height = 0.34
+material = SubResource("6_stage_material")
+
+[sub_resource type="BoxMesh" id="16_tray_mesh"]
+size = Vector3(3.3, 0.18, 1.6)
+material = SubResource("7_tray_material")
+
+[sub_resource type="TorusMesh" id="17_globe_rim_mesh"]
+inner_radius = 0.12
+outer_radius = 4.12
+material = SubResource("2_brass_material")
+
+[sub_resource type="CylinderMesh" id="18_globe_ring_mesh"]
+top_radius = 4.08
+bottom_radius = 4.25
+height = 0.16
+material = SubResource("2_brass_material")
+
+[sub_resource type="CylinderMesh" id="19_inner_riser_mesh"]
+top_radius = 1.8
+bottom_radius = 1.95
+height = 0.16
+material = SubResource("2_brass_material")
+
+[sub_resource type="BoxMesh" id="20_tray_lip_mesh"]
+size = Vector3(2.55, 0.08, 0.26)
+material = SubResource("2_brass_material")
+
+[sub_resource type="CylinderMesh" id="21_top_cap_mesh"]
+top_radius = 0.62
+bottom_radius = 0.68
+height = 0.28
+material = SubResource("2_brass_material")
+
+[node name="FatherTimeDioramaRoot" type="Node3D"]
+script = ExtResource("1_root")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+camera_attributes = SubResource("22_camera_attributes")
+environment = SubResource("8_environment")
+
+[node name="BackdropWall" type="MeshInstance3D" parent="."]
+position = Vector3(0, 5.6, -15.2)
+mesh = SubResource("13_backdrop_mesh")
+
+[node name="PedestalBase" type="MeshInstance3D" parent="."]
+position = Vector3(0, -3.2, 0)
+visible = false
+mesh = SubResource("9_pedestal_base_mesh")
+
+[node name="PedestalMid" type="MeshInstance3D" parent="."]
+position = Vector3(0, -2.3, 0)
+visible = false
+mesh = SubResource("10_pedestal_mid_mesh")
+
+[node name="PedestalTop" type="MeshInstance3D" parent="."]
+position = Vector3(0, -1.78, 0)
+visible = false
+mesh = SubResource("11_pedestal_top_mesh")
+
+[node name="DisplayPlaque" type="MeshInstance3D" parent="."]
+position = Vector3(0, -1.72, 4.6)
+rotation_degrees = Vector3(-18, 0, 0)
+visible = false
+mesh = SubResource("12_plaque_mesh")
+
+[node name="InnerStage" type="MeshInstance3D" parent="."]
+position = Vector3(0, -1.28, 0)
+scale = Vector3(0.72, 0.82, 0.72)
+visible = false
+mesh = SubResource("15_stage_mesh")
+
+[node name="InnerRiser" type="MeshInstance3D" parent="."]
+position = Vector3(0, -1.08, -0.62)
+scale = Vector3(0.58, 0.8, 0.58)
+visible = false
+mesh = SubResource("19_inner_riser_mesh")
+
+[node name="GlobeBaseRing" type="MeshInstance3D" parent="."]
+position = Vector3(0, -1.06, 0)
+visible = false
+mesh = SubResource("18_globe_ring_mesh")
+
+[node name="GlobeRim" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.94, 0)
+visible = false
+mesh = SubResource("17_globe_rim_mesh")
+
+[node name="GlobeGlass" type="MeshInstance3D" parent="."]
+position = Vector3(0, 2.48, 0)
+scale = Vector3(0.96, 0.74, 0.96)
+visible = false
+mesh = SubResource("14_globe_mesh")
+
+[node name="TopCap" type="MeshInstance3D" parent="."]
+position = Vector3(0, 5.95, 0)
+visible = false
+mesh = SubResource("21_top_cap_mesh")
+
+[node name="ArtifactTrayAnchor" type="Node3D" parent="."]
+position = Vector3(-2.9, -2.35, 5.05)
+scale = Vector3(0.28, 0.28, 0.28)
+visible = false
+
+[node name="ArtifactTrayPlinth" type="MeshInstance3D" parent="ArtifactTrayAnchor"]
+position = Vector3(0, 0.09, 0)
+mesh = SubResource("16_tray_mesh")
+
+[node name="TrayLip" type="MeshInstance3D" parent="ArtifactTrayAnchor"]
+position = Vector3(0, 0.16, 0.56)
+mesh = SubResource("20_tray_lip_mesh")
+
+[node name="ArtifactPreviewPivot" type="Node3D" parent="ArtifactTrayAnchor"]
+position = Vector3(0, 0.22, -0.08)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-54, -16, 0)
+light_energy = 1.82
+shadow_enabled = true
+
+[node name="FillLight3D" type="OmniLight3D" parent="."]
+position = Vector3(-5.8, 5.4, 6.9)
+light_energy = 0.7
+light_color = Color(0.705882, 0.8, 0.901961, 1)
+omni_range = 20.0
+
+[node name="RimLight3D" type="OmniLight3D" parent="."]
+position = Vector3(5.0, 4.0, -2.4)
+light_energy = 0.46
+light_color = Color(0.94902, 0.768627, 0.509804, 1)
+omni_range = 16.0
+
+[node name="CameraRig" type="Node3D" parent="."]
+
+[node name="MainCamera" type="Camera3D" parent="CameraRig"]
+position = Vector3(0, 5.8, 6.5)
+rotation_degrees = Vector3(-52, 0, 0)
+current = true
+fov = 26.0
+
+[node name="Era1955" parent="." instance=ExtResource("2_1955")]
+position = Vector3(0, 0.18, 0.28)
+
+[node name="Era1985" parent="." instance=ExtResource("3_1985")]
+visible = false
+position = Vector3(0, 0.2, 0)
+
+[node name="Era2015" parent="." instance=ExtResource("4_2015")]
+visible = false
+position = Vector3(0, 0.2, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BootStatusPlate" type="ColorRect" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 640.0
+offset_right = 272.0
+offset_bottom = 684.0
+color = Color(0.0901961, 0.0705882, 0.0509804, 0.62)
+
+[node name="BootStatusLabel" type="Label" parent="CanvasLayer"]
+offset_left = 36.0
+offset_top = 650.0
+offset_right = 258.0
+offset_bottom = 679.0
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 14
+text = "Booting Father Time Diorama..."
+
+[node name="InstructionPlate" type="ColorRect" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 690.0
+offset_right = 314.0
+offset_bottom = 734.0
+color = Color(0.0901961, 0.0705882, 0.0509804, 0.56)
+
+[node name="InstructionLabel" type="Label" parent="CanvasLayer"]
+offset_left = 36.0
+offset_top = 700.0
+offset_right = 302.0
+offset_bottom = 728.0
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 12
+text = "Guide the selected artifact to the brass socket."
+
+[node name="ConsequencePlate" type="ColorRect" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 590.0
+offset_right = 286.0
+offset_bottom = 632.0
+color = Color(0.0901961, 0.0705882, 0.0509804, 0.52)
+
+[node name="ConsequenceLabel" type="Label" parent="CanvasLayer"]
+offset_left = 36.0
+offset_top = 600.0
+offset_right = 274.0
+offset_bottom = 626.0
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 12
+text = "No consequence yet."

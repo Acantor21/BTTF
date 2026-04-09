@@ -1,0 +1,21 @@
+; Engine configuration file.
+; Auto-generated first implementation scaffold for Father Time Diorama.
+
+config_version=5
+
+[application]
+
+config/name="BTTF"
+config/features=PackedStringArray("4.6")
+run/main_scene="res://scenes/father_time_diorama/FatherTimeDioramaRoot.tscn"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="forward_plus"
